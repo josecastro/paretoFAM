@@ -1,0 +1,17 @@
+%
+% Matlab/Octave function
+% utility function for efficient pareto calculation
+% unfortunately not very efficient in matlab :(
+%   should recode in C
+%
+
+function [N Tvect rhoVect]  = elimineResto(pos, Tvect, rhoVect)
+    N = 0;
+    while (pos ~= 0)
+      [prox rhoVect] = elimine(pos, rhoVect);
+      [_ Tvect]      = elimine(pos, Tvect);
+      N = N + 1;
+      pos = prox;
+    end
+endfunction
+    
