@@ -1,0 +1,9 @@
+%
+% random data just for benchmark purposes
+%
+
+function dummy = createRandomData(num_pats, num_categories)
+   a = rand(2,num_pats);
+   bmat = floor(rand(1,num_pats)*num_categories)+1;
+   save -binary 'datos.bin' num_pats a bmat;
+endfunction
